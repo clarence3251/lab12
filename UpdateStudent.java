@@ -5,9 +5,9 @@ import java.sql.SQLException;
 import java.util.Scanner;
 
 public class UpdateStudent {
-    public static void main(String[] args) {
-        try (Connection conn = DatabaseConnection.getConnection();
-             Scanner scanner = new Scanner(System.in)) {
+
+    public void update(Connection conn, Scanner scanner){
+        try{
 
             String choice;
 
@@ -60,5 +60,8 @@ public class UpdateStudent {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+    public static void main(String[] args) {
+        
     }
 }

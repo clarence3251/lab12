@@ -4,9 +4,9 @@ import java.sql.SQLException;
 import java.util.Scanner;
 
 public class InsertStudent {
-    public static void main(String[] args) {
-        try (Connection conn = DatabaseConnection.getConnection();
-             Scanner scanner = new Scanner(System.in)) {
+ 
+    public void add(Connection conn, Scanner scanner){
+        try {
 
             String choice;
 

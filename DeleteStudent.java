@@ -5,9 +5,9 @@ import java.sql.SQLException;
 import java.util.Scanner;
 
 public class DeleteStudent {
-    public static void main(String[] args) {
-        try (Connection conn = DatabaseConnection.getConnection();
-             Scanner scanner = new Scanner(System.in)) {
+    
+    public void delete(Connection conn, Scanner scanner){
+        try {
 
             String choice;
 
@@ -63,5 +63,5 @@ public class DeleteStudent {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-    }
+    }  
 }

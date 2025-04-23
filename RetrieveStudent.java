@@ -5,9 +5,9 @@ import java.sql.SQLException;
 import java.util.Scanner;
 
 public class RetrieveStudent {
-    public static void main(String[] args) {
-        try (Connection conn = DatabaseConnection.getConnection();
-             Scanner scanner = new Scanner(System.in)) {
+
+    public void retrieve(Connection conn, Scanner scanner){
+        try {
 
             String choice;
 
@@ -39,6 +39,26 @@ public class RetrieveStudent {
             } while (choice.equals("yes"));
 
             System.out.println("Finished retrieving student records.");
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+    
+    public void retrieveAll(Connection conn) {
+        String sql = "SELECT * FROM students";
+
+        try (PreparedStatement stmt = conn.prepareStatement(sql);
+             ResultSet rs = stmt.executeQuery()) {
+
+            System.out.println("\n===== All Student Records =====");
+            while (rs.next()) {
+                int id = rs.getInt("id");
+                String name = rs.getString("name");
+                String course = rs.getString("course");
+
+                System.out.println("ID: " + id + " | Name: " + name + " | Course: " + course);
+            }
 
         } catch (SQLException e) {
             e.printStackTrace();
