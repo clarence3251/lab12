@@ -41,7 +41,7 @@ public class mainMenu {
                         del.delete(conn, scanner);
                         break;
                     case 5:
-                        ret.retrieveAll(conn);  // Show all student records
+                        ret.retrieveAll(conn); 
                         break;
                     case 6:
                         System.out.println("Thank you. Exiting...");
